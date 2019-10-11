@@ -21,11 +21,11 @@ public class DeleteCardTokenService {
         String errCode = card_token.substring(card_token.length() - 4);
         String errMsg = env.getProperty("err.code." + errCode);
 
-        if (errMsg.equals("0201")){
+        if (errMsg != null){
             deleteCardTokenResponse.setStatus(errCode);
             res = setResponse(HttpStatus.BAD_REQUEST, deleteCardTokenResponse);
         } else {
-            deleteCardTokenResponse.setStatus(errCode);
+            deleteCardTokenResponse.setStatus("0000");
             res = setResponse(HttpStatus.OK, deleteCardTokenResponse);
         }
 

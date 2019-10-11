@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import partner.api.bri.co.id.response.ResponseOTP;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "sandbox/v1/directdebit/tokens")
 public class DeleteCardTokenController {
@@ -16,7 +18,7 @@ public class DeleteCardTokenController {
     DeleteCardTokenService deleteCardTokenService;
 
     @DeleteMapping
-    public ResponseEntity<ResponseOTP> deleteToken(@RequestBody DeleteCardTokenRequest deleteCardTokenRequest) {
+    public ResponseEntity<ResponseOTP> deleteToken(@RequestBody @Valid DeleteCardTokenRequest deleteCardTokenRequest) {
         return deleteCardTokenService.deleteTokenOTP(deleteCardTokenRequest);
     }
 }
