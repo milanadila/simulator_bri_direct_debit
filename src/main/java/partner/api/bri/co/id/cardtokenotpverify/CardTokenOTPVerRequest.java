@@ -1,9 +1,10 @@
 package partner.api.bri.co.id.cardtokenotpverify;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Data
 public class CardTokenOTPVerRequest {
@@ -13,6 +14,8 @@ public class CardTokenOTPVerRequest {
     private String registration_token;
 
 
+    @NotEmpty(message = "cannot null")
     @NotNull(message = "must be filled")
-    private Integer passcode;
+    @Length(min = 6, message = "min 6 character")
+    private String passcode;
 }

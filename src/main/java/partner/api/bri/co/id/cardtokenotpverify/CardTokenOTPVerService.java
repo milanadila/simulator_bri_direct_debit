@@ -20,8 +20,8 @@ public class CardTokenOTPVerService {
         Metadata metadata = new Metadata();
         ResponseEntity<ResponseOTP> res;
 
-        Integer pas_code = cardTokenOTPVerRequest.getPasscode();
-        String errCode = String.valueOf(pas_code).substring(String.valueOf(pas_code).length() - 4);
+        String pas_code = cardTokenOTPVerRequest.getPasscode();
+        String errCode = pas_code.substring(pas_code.length() - 4);
         String errMsg = env.getProperty("err.code." + errCode);
 
         if (errMsg != null) {

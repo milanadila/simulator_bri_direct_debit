@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class CardTokenOTPRequest {
 
-    @Length(max = 16, message = "max 16 character")
+    @Length(min = 16, message = "min 16 character")
     @NotEmpty(message = "must be filled")
     @NotNull(message = "cannot null")
     private String card_pan;
